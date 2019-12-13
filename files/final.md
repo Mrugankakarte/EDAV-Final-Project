@@ -195,6 +195,17 @@ knitr::opts_chunk$set(echo = TRUE)
    .attr("transform", `translate(${margin.left},${h-margin.bottom})`)
    .call(xAxis);
 
+  svg.append("text")
+    .text("Longitude")
+    .attr("x", margin.left + innerWidth/2 - 40)
+    .attr("y", margin.top + innerHeight + margin.bottom/1.2);
+
+  svg.append("text")
+    .text("Latitude")
+    .attr("x", margin.left/2)
+    .attr("y", margin.top + innerHeight/2 + 5)
+    .attr("transform", "rotate(-90,".concat(margin.left/2, ",", margin.top + innerHeight/2 + 10,")"));
+
   seconddiv = d3.select("#summary");
   seconddiv.append("p").text("Municipality ID: ")
     .attr("id", "mcode")
