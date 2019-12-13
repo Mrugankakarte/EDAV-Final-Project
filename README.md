@@ -32,9 +32,9 @@ We also merged data together on dates or geography where relevant.  This allows 
 
 We first analyze missing pcode values in the Morina border.  These values are represented by -1000 in the data.  
 
-![plot1](/EDAV-Final-Project/files/graphs/plot1)
+![plot1](/EDAV-Final-Project/files/graphs/plot1.jpeg)
 
-![plot2](/EDAV-Final-Project/files/graphs/plot2)
+![plot2](/EDAV-Final-Project/files/graphs/plot2.jpeg)
 
 ~ 10.6% of the observations have pcode missing and less than 0.1% (2 rows) where exdate (Date of crossing the border) is missing.
 
@@ -43,15 +43,15 @@ From the above visualization of missing data, we note that most records from the
 
 We can see that pcodes of records for crossing the border are largely missing for dates before March 31, 1999.
 
-![plot3](/EDAV-Final-Project/files/graphs/plot3)
+![plot3](/EDAV-Final-Project/files/graphs/plot3.jpeg)
 
 Two groups the UN High Comission for Refugees (uncnt) and Government of Albania’s Emergency Management Group (emgcnt) reported the daily number of people crossing the border. The data is recorded from March 24,1999 to May 25, 1999 in this dataset, out of which 29% of the data missing. Column uncnt has more missing values (50.6%).  It appears that UN reported border counts where not captured when Emg started reporting those figures.
 
-![plot4](/EDAV-Final-Project/files/graphs/plot4)
+![plot4](/EDAV-Final-Project/files/graphs/plot4.jpeg)
 
-![plot5](/EDAV-Final-Project/files/graphs/plot5)
+![plot5](/EDAV-Final-Project/files/graphs/plot5.jpeg)
 
-![plot6](/EDAV-Final-Project/files/graphs/plot6)
+![plot6](/EDAV-Final-Project/files/graphs/plot6.jpeg)
 
 There are only 5 dates where the border crossings are missing for both groups (UNHCR and EMG).
 
@@ -60,25 +60,25 @@ Only around 1% of the data out of 1837 Kosovar Albanian families sampled for the
 
 For the interview data captured for 265 Kosovar Albanian households in camps in Albania and Bosnia, pcode is null where pcode = -1.
 
-![plot7](/EDAV-Final-Project/files/graphs/plot7)
+![plot7](/EDAV-Final-Project/files/graphs/plot7.jpeg)
 
-![plot8](/EDAV-Final-Project/files/graphs/plot8)
+![plot8](/EDAV-Final-Project/files/graphs/plot8.jpeg)
 
 Out of 264 housholds in camps in Albania and Bosnia interviewed by IPLS/AAAS teams, around 7% of data is missing.
 
 Columns exdate (Date crossing the border), pcode (Code of the village or town where they lived in Kosovo), lvdate (Date this household left their homes) have ~11.5% missing values. Column ngrp (Number of people in the group) and bos (Albania or Bosnia) have no missing values.
 
-![plot9](/EDAV-Final-Project/files/graphs/plot9)
+![plot9](/EDAV-Final-Project/files/graphs/plot9.jpeg)
 
-![plot10](/EDAV-Final-Project/files/graphs/plot10)
+![plot10](/EDAV-Final-Project/files/graphs/plot10.jpeg)
 
 Next, we consider IPLS survey data, which has border crossing information for 671 households that crossed into Albania and 509 more that crossed into Macedonia.  The IPLS survey data, ~23.5% of the 62 rows have some missing data.  11 rows have more than 2 missing values, and 9 rows are missing all of exdate, pcode and lvdate.
 
 There seems to be a correlation in the missing data from lvdate and exdate and bos. bos = 0 ie we are missing lvdate and exdate for ~15-20% of people interviewed in Albania.
 
-![plot11](/EDAV-Final-Project/files/graphs/plot11)
+![plot11](/EDAV-Final-Project/files/graphs/plot11.jpeg)
 
-![plot12](/EDAV-Final-Project/files/graphs/plot12)
+![plot12](/EDAV-Final-Project/files/graphs/plot12.jpeg)
 
 Next, we consider the PHR migration data.  For ~100 data points (8.4%) out of 1180, the mcode (Code of the municipality where they lived in Kosovo) is missing. Here, only around 2.3% of the data missing, and there are very few rows where more than 1 column has a missing value,
 
@@ -87,11 +87,11 @@ There seems to be no one particular interview location (int_loc 1=Albania, 2=Mac
 Finally, we look at missing values in the killings data.  
 The age column has the most missing data (~35%). For ~3% of the data sex is recorded as unknown. From this figure we can see there are only 62 rows out of over 4k where both age and sex information is unknown.
 
-![plot13](/EDAV-Final-Project/files/graphs/plot13)
+![plot13](/EDAV-Final-Project/files/graphs/plot13.jpeg)
 
-![plot14](/EDAV-Final-Project/files/graphs/plot14)
+![plot14](/EDAV-Final-Project/files/graphs/plot14.jpeg)
 
-![plot15](/EDAV-Final-Project/files/graphs/plot15)
+![plot15](/EDAV-Final-Project/files/graphs/plot15.jpeg)
 
 There is no missing data on NATO airstrikes.
 
@@ -101,11 +101,11 @@ There is no missing data on NATO airstrikes.
 
 We begin by examining the patterns of migrations from the region over the period and its relationship to NATO airstrikes and KLA activity.  This following chart shows the pattern distribution of people migrating via the Morina border over the time period in question.  
 
-![plot16](/EDAV-Final-Project/files/graphs/plot16)
+![plot16](/EDAV-Final-Project/files/graphs/plot16.jpeg)
 
 We also visualize the migration counts reported by the UNHCR and EMG:
 
-![plot17](/EDAV-Final-Project/files/graphs/plot17)
+![plot17](/EDAV-Final-Project/files/graphs/plot17.jpeg)
 
 Since these counts appear to very similar distributions, we will refer primarily to the Morina border cross data when comparing agains other data to observe trends for convenience.  
 
@@ -119,23 +119,23 @@ May saw yet another small spike in migration after the NATO airstrike on the Dub
 
 However, these events don't fully explain the migration distribution we observe.  To get more complete picture, we plot the count of NATO airstrikes  occurring across days:
 
-![plot18](/EDAV-Final-Project/files/graphs/plot18)
+![plot18](/EDAV-Final-Project/files/graphs/plot18.jpeg)
 
 This chart reveals a surge in NATO airstrikes just before the surge in migrations around April 15.  Again, this strongly suggests that NATO airstrikes may be directly linked to migrations.  
 
 To better understand the relationships between airstrikes and migrations, we can also compare the number of migrants from repsective municipalities to the municipalities subjected to airstrikes:
 
-![plot19](/EDAV-Final-Project/files/graphs/plot19)
+![plot19](/EDAV-Final-Project/files/graphs/plot19.jpeg)
 
-![plot20](/EDAV-Final-Project/files/graphs/plot20)
+![plot20](/EDAV-Final-Project/files/graphs/plot20.jpeg)
 
 These charts clearly support the idea that airstrikes tend to correspond to increased migration from an area.  We can see that mcodes 1, 2, 11, 13, 18, and 20 all reflect both elevated levels of airstrikes and of migrations at the Morina border.  However, some mcode regions do not map especially well, for instance regions 17, 19, 24, and 25. 
 
 Next, we look at the relationship between these NATO airstrikes and deaths.  The following two charts present the number of deaths by day and by mcode:
 
-![plot21](/EDAV-Final-Project/files/graphs/plot21)
+![plot21](/EDAV-Final-Project/files/graphs/plot21.jpeg)
 
-![plot22](/EDAV-Final-Project/files/graphs/plot22)
+![plot22](/EDAV-Final-Project/files/graphs/plot22.jpeg)
 
 Interestingly, the number of deaths reported appears to be significantly lower during the later stages of the conflict in May and June.  This is precisely when the level of NATO airstrikes was greatest, with over 5 airstrikes nearly ever day during this stretch.  This suggests that a steady, high level of airstrikes might actually correspond to fewer deaths in the conflict, despite corresponding to increased migrations. 
 
@@ -143,9 +143,9 @@ We can also see that there is a spike in the number of deaths in mid-April.  Thi
 
 Finally, we visualize KLA activity to better understand whether ground conflict shows similar relationships to migrations and deaths.  We limit our analysis to records of type 'k', casualties reported by Yugoslavian forces, as a proxy for the level of ground conflict.   
 
-![plot23](/EDAV-Final-Project/files/graphs/plot23)
+![plot23](/EDAV-Final-Project/files/graphs/plot23.jpeg)
 
-![plot24](/EDAV-Final-Project/files/graphs/plot24)
+![plot24](/EDAV-Final-Project/files/graphs/plot24.jpeg)
 
 Most notably, we see a clear spike in KLA activity in mid-April.  As the first such spike after the start of the NATO attacks in late March, it seems that this conflict might be tied to the corresponding spikes in migrations and deaths at the same time.  Interestingly, the high levels of both KLA activity airstrikes at the end of May and in mid-late June don't appear to correspond to any increase in migration or deaths.  
 
@@ -155,21 +155,21 @@ While the relationships detailed in section V.i above represent the most interes
 
 First, we observe the distribution of deaths among age, with breakdowns by sex:  
 
-![plot25](/EDAV-Final-Project/files/graphs/plot25)
+![plot25](/EDAV-Final-Project/files/graphs/plot25.jpeg)
 
 Most of the dead are men, a fact that that likely indicates women are less prone to participate in the armed conflict than men.  More surprisingly, the mode of the distribution with respect to age appears to occur around 50, with the 40-50 and 50-60 age groups being most heavily represented.  It is unclear why this might be, given that armies tend to be more populated by younger men.  It indicates perhaps how all-consuming the conflict really was for individuals living in  Kosovo, forced to participate even at even more advanced ages.  
 
 Next, we consider the refugee interview data collected by IPLS/AAAS.  Some of this data was collected from refugees in Alabania (code 0) and some from refugees in Bosnia (code 1).  Interestingly, it seems that the groups going to Albania tend to be larger.   
 
-![plot26](/EDAV-Final-Project/files/graphs/plot26)
+![plot26](/EDAV-Final-Project/files/graphs/plot26.jpeg)
 
 Since most migrants from Kosovo were ethnically Albanian, the majority of refugees tended to migrate towards to Albania.  It is possible that refugees heading towards Bosnia may have tended to consist of core families with ties to Bosnia, and were thus smaller than the typically larger parties that grouped together on their trips to Albania.  
 
 We can observe a similar phenomenon in the PHR refugee interview data, which interviewed refugees in both Albania and Macedonia.  Once again, parties in Albania tend to be larger.  The 671 housholds interviewed in Albania had 73% more people who migrated (5905 people) than 509 households that crossed Macedonia (3395 people).
 
-![plot27](/EDAV-Final-Project/files/graphs/plot27)
+![plot27](/EDAV-Final-Project/files/graphs/plot27.jpeg)
 
-![plot28](/EDAV-Final-Project/files/graphs/plot28)
+![plot28](/EDAV-Final-Project/files/graphs/plot28.jpeg)
 
 Here we see that more than ~48% of groups going to Albania migrated in groups of 5-10, and ~28% were in groups that were smaller than 5 members(~22% of the groups had group sizes >10).  In contrast, groups migrating to Macedonia were evenly split between groups of size 0-5 and 5-10, and only ~12% of groups going to Macedonia at more than 10 people.  
 
