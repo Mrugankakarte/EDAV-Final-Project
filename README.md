@@ -114,7 +114,7 @@ Next, we plot these migratinos against the the count of NATO bombings occurring 
     .append("image")
       .attr("id", "terrainimage")
       .attr("width", innerWidth)
-      .attr("xlink:href", "/files/terrain.jpeg")
+      .attr("xlink:href", "/EDAV-Final-Project/files/terrain.jpeg")
       .attr("height", innerHeight)
       .attr("x", margin.left)
       .attr("y", margin.top);
@@ -123,7 +123,7 @@ Next, we plot these migratinos against the the count of NATO bombings occurring 
     .append("image")
       .attr("id", "watercolorimage")
       .attr("width", innerWidth)
-      .attr("xlink:href", "/files/watercolor.jpeg")
+      .attr("xlink:href", "/EDAV-Final-Project/files/watercolor.jpeg")
       .attr("height", innerHeight)
       .attr("x", margin.left)
       .attr("y", margin.top);
