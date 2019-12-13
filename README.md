@@ -44,6 +44,14 @@ May saw yet another small spike in migration after the NATO airstrike on the Dub
 
 Next, we plot these migratinos against the the count of NATO bombings occurring across days. 
 
+### VII.  Conclusion
+
+To being, we examined the relationship between deaths other variables.  Overall there is high correlation between nsum (total estimated deaths for the two-day period) and lvcnt (estimated total number of people leaving home during this two-day period), and negative corelation between nsum and bomb (number of NATO airstrikes). This indicates that people did not die or leave due to NATO airstrikes.  
+
+nsum and lvcnt seem to be postively correlated to KlaB (number of reported KLA exchanges of fire with Serb authorities).  This confirms one of the theory that killings lead to migration of people. However we need to look more into the reasons that deaths during this period as estimated deaths are negatively correlated to NATO bombings and positively correlated to KLA exchanges of fire.
+
+
+
 ### VI. Interactive component
 
 
@@ -343,11 +351,6 @@ document.getElementById("terrainradio").click();
 
 
 
-### VII.  Conclusion
-
-To being, we examined the relationship between deaths other variables.  Overall there is high correlation between nsum (total estimated deaths for the two-day period) and lvcnt (estimated total number of people leaving home during this two-day period), and negative corelation between nsum and bomb (number of NATO airstrikes). This indicates that people did not die or leave due to NATO airstrikes.  
-
-nsum and lvcnt seem to be postively correlated to KlaB (number of reported KLA exchanges of fire with Serb authorities).  This confirms one of the theory that killings lead to migration of people. However we need to look more into the reasons that deaths during this period as estimated deaths are negatively correlated to NATO bombings and positively correlated to KLA exchanges of fire.
 
 
 
