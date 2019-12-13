@@ -25,14 +25,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
   //Title
   //Axis Labels x2
-  //Make circle radii in proportion to num_migrations
 
-  CSV_SOURCE = "http://127.0.0.1:8080/summary.csv";
+  CSV_SOURCE = "https://gist.githubusercontent.com/Mrugankakarte/1d9f50e183489279bfedfb5651a1676d/raw/26a67fe5f9d7e46fe31a29dde716613c0792c7a2/summary.csv";
   OPACITY_LEVEL = 0.7;
-  DOTRADIUS = 4.5;
+
+  DOTRADIUSSMALL = 2.5;
+  DOTRADIUSBIG = 9;
+  DOTRADIUS = 3;
 
   d3.select("#chart").append("form").attr("id", "selection");
-  
+
   d3.select("form").append("input")
     .attr("type", "radio")
     .attr("id", "terrainradio")
@@ -50,6 +52,78 @@ knitr::opts_chunk$set(echo = TRUE)
   d3.select("form").append("label")
     .attr("for", "watercolorradio")
     .text(" Watercolor rendering ");
+
+  d3.select("#chart").append("h3").text("Select a criteria to compare the regions on");
+  d3.select("#chart").append("form").attr("id", "criteria");
+
+  d3.select("#criteria").append("input")
+    .attr("type", "radio")
+    .attr("id", "migrationradio")
+    .attr("name", "criteria");
+
+  d3.select("#criteria").append("label")
+    .attr("for", "migrationradio")
+    .text(" Migrations ");
+
+  d3.select("#criteria").append("input")
+    .attr("type", "radio")
+    .attr("id", "killingsradio")
+    .attr("name", "criteria");
+
+  d3.select("#criteria").append("label")
+    .attr("for", "killingsradio")
+    .text(" Killings ");
+
+  d3.select("#criteria").append("input")
+    .attr("type", "radio")
+    .attr("id", "natoradio")
+    .attr("name", "criteria");
+
+  d3.select("#criteria").append("label")
+    .attr("for", "natoradio")
+    .text(" NATO Airstrikes ");
+
+  d3.select("#criteria").append("input")
+    .attr("type", "radio")
+    .attr("id", "klaradio")
+    .attr("name", "criteria");
+
+  d3.select("#criteria").append("label")
+    .attr("for", "klaradio")
+    .text(" KLA Activity ");
+
+  d3.select("#migrationradio").on("click", function(){
+    d3.selectAll("circle").each(function() {
+      var id = d3.select(this).attr("id");
+      var migrations = summary_stats[id].migrations;
+      d3.select(this).attr("r", migrationScale(migrations));
+    })
+  });
+
+  d3.select("#killingsradio").on("click", function(){
+    d3.selectAll("circle").each(function() {
+      var id = d3.select(this).attr("id");
+      var killings = summary_stats[id].killings;
+      d3.select(this).attr("r", killingScale(killings));
+    })
+  });
+
+  d3.select("#natoradio").on("click", function(){
+    d3.selectAll("circle").each(function() {
+      var id = d3.select(this).attr("id");
+      var nato = summary_stats[id].nato_airstrikes;
+      d3.select(this).attr("r", natoScale(nato));
+    })
+  });
+
+  d3.select("#klaradio").on("click", function(){
+    d3.selectAll("circle").each(function() {
+      var id = d3.select(this).attr("id");
+      var kla = summary_stats[id].kla;
+      d3.select(this).attr("r", klaScale(kla));
+    })
+  });
+
 
   var bottomLat = 41.810;
   var topLat = 43.285;
@@ -141,6 +215,11 @@ knitr::opts_chunk$set(echo = TRUE)
     d3.select("#kla").text("Reports of KLA causalties: " + summary.kla);
   }
 
+  var migrationScale;
+  var killingScale;
+  var natoScale;
+  var klaScale;
+  var summary_stats = {};
   //DATA
   d3.csv(CSV_SOURCE, function(d) {
     return {
@@ -152,36 +231,68 @@ knitr::opts_chunk$set(echo = TRUE)
       lat : +d["mean_latitude"],
       long : +d["mean_longitude"]
     };
-  }).then(function(data){
-    var summary = {};
+  })
+  .then(function(data){
+    var migrationsrange = [10000000,-1];
+    var killingsrange = [10000000,-1];
+    var natorange = [10000000,-1];
+    var klarange = [10000000,-1];
     for (i = 0; i < data.length; i++){
       //Add points for each data
       row = data[i];
       if (!isNaN(row.long) && !isNaN(row.lat)){
         d3.select("svg").append("circle")
-          .attr("cx", xScale(row.long))
-          .attr("cy", yScale(row.lat))
-          .attr("r", DOTRADIUS)
-          .attr("id", row.mcode);
-        summary[row.mcode] = {
-          killings: row.killings,
-          migrations : row.migrations,
-          nato_airstrikes : row.nato_airstrikes,
-          kla : row.kla
+        .attr("cx", xScale(row.long))
+        .attr("cy", yScale(row.lat))
+        .attr("r", DOTRADIUS)
+        .attr("id", row.mcode);
+        migrationsrange[0] = Math.min(migrationsrange[0], row.migrations || 0);
+        migrationsrange[1] = Math.max(migrationsrange[1], row.migrations || 0);
+        killingsrange[0] = Math.min(killingsrange[0], row.killings || 0);
+        killingsrange[1] = Math.max(killingsrange[1], row.killings || 0);
+        natorange[0] = Math.min(natorange[0], row.nato_airstrikes || 0);
+        natorange[1] = Math.max(natorange[1], row.nato_airstrikes || 0);
+        klarange[0] = Math.min(klarange[0], row.kla || 0);
+        klarange[1] = Math.max(klarange[1], row.kla || 0);
+
+        summary_stats[row.mcode] = {
+          killings: row.killings || 0,
+          migrations : row.migrations || 0,
+          nato_airstrikes : row.nato_airstrikes || 0,
+          kla : row.kla || 0
         };
       }
     }
     //Add event listeners
     d3.selectAll("circle").on("click", function(){
       d3.selectAll("circle").attr("fill","black");
-      d3.selectAll("circle").attr("r",DOTRADIUS);
+      // d3.selectAll("circle").attr("r",DOTRADIUS);
       var circle = d3.select(this);
       circle.attr("fill", "#BF3EFF");
-      oldR = circle.attr("r");
-      circle.transition().duration(350).attr("r", oldR*1.75);
+      // oldR = circle.attr("r");
+      // circle.transition().duration(350).attr("r", oldR*1.75);
       var id = circle.attr("id");
-      updateStats(id, summary[id]);
-    })
+      updateStats(id, summary_stats[id]);
+    });
+
+    migrationScale = d3.scaleLinear()
+      .domain(migrationsrange)
+      .range([DOTRADIUSSMALL, DOTRADIUSBIG]);
+
+    killingScale = d3.scaleLinear()
+      .domain(killingsrange)
+      .range([DOTRADIUSSMALL, DOTRADIUSBIG]);
+
+    natoScale = d3.scaleLinear()
+      .domain(natorange)
+      .range([DOTRADIUSSMALL, DOTRADIUSBIG]);
+
+    klaScale = d3.scaleLinear()
+      .domain(klarange)
+      .range([DOTRADIUSSMALL, DOTRADIUSBIG]);
+
+    document.getElementById("migrationradio").click();
+
   }).catch(function(error){
     console.log("ERROR");
     console.log(error);
