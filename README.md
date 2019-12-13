@@ -65,7 +65,7 @@ Next, we plot these migratinos against the the count of NATO bombings occurring 
   //Axis Labels x2
   //Make circle radii in proportion to num_migrations
 
-  CSV_SOURCE = "https:github.com/Mrugankakarte/EDAV-Final-Project/Kosovo Data/summary.csv";
+  CSV_SOURCE = "https://gist.githubusercontent.com/Mrugankakarte/1d9f50e183489279bfedfb5651a1676d/raw/26a67fe5f9d7e46fe31a29dde716613c0792c7a2/summary.csv"
   OPACITY_LEVEL = 0.7;
   DOTRADIUS = 4.5;
 
